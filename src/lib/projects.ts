@@ -162,7 +162,9 @@ export async function listProjects(
   userId: string,
   params: ListProjectsParams = {},
 ) {
-  const { q, status, priority, sort = "updated" } = params;
+  //const { q, status, priority, sort = "updated" } = params;
+  const { status, priority, sort = "updated" } = params;
+const q = params.q?.trim();
 
   const orderBy =
     sort === "title"
