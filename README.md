@@ -10,7 +10,7 @@ Track your personal projects from idea to shipped — a calm, premium dashboard 
 ![Postgres](https://img.shields.io/badge/Neon-Postgres-00E599?style=flat&logo=postgresql&logoColor=white)
 ![Auth.js](https://img.shields.io/badge/Auth.js-v5-7F2EFF?style=flat)
 ![Tailwind](https://img.shields.io/badge/Tailwind-3-06B6D4?style=flat&logo=tailwindcss&logoColor=white)
-
+![License](https://img.shields.io/badge/License-MIT-blue.svg?style=flat)
 
 ## Features
 
@@ -124,3 +124,6 @@ pnpm db:migrate   # create + run a migration
 pnpm db:studio    # open Prisma Studio
 ```
 
+## License
+
+MIT
