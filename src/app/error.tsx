@@ -14,7 +14,7 @@ export default function RootError({
   useEffect(() => {
     console.error(error);
   }, [error]);
-
+//to return the error correvtly
   return (
     <main className="mx-auto flex min-h-screen max-w-content items-center px-6 sm:px-8">
       <ErrorState
