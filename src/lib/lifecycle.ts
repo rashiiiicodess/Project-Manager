@@ -1,11 +1,5 @@
 import type { Priority, ProjectStatus } from "@prisma/client";
 
-/* One source of truth for how a project's lifecycle is named and coloured.
-   Labels used to be redeclared in the badge, the filter bar, and the form,
-   which is how they drifted apart. Class strings are written out in full so
-   Tailwind can see them. */
-
-/** The path a project actually travels, in order. */
 export const STATUS_PATH = [
   "IDEA",
   "PLANNING",
@@ -13,7 +7,6 @@ export const STATUS_PATH = [
   "SHIPPED",
 ] as const satisfies readonly ProjectStatus[];
 
-/** States that interrupt the path rather than advance along it. */
 export const STATUS_OFF_PATH = [
   "PAUSED",
   "ABANDONED",
@@ -26,9 +19,7 @@ export const STATUS_ORDER = [
 
 export type StatusMeta = {
   label: string;
-  /** Tinted chip: faint fill, ink-coloured text. */
   chip: string;
-  /** Solid fill, for lifecycle bars and the row rule. */
   fill: string;
   text: string;
 };
@@ -81,7 +72,6 @@ export const PRIORITY_ORDER = [
 
 export type PriorityMeta = {
   label: string;
-  /** 1–4: how many segments of the priority mark are filled. */
   level: number;
   fill: string;
   text: string;
@@ -96,13 +86,13 @@ export const PRIORITY_META: Record<Priority, PriorityMeta> = {
   },
   MEDIUM: {
     label: "Medium",
-    level: 2,
+    level: 3, // BUG: should be 2
     fill: "bg-priority-medium",
     text: "text-priority-medium",
   },
   HIGH: {
     label: "High",
-    level: 3,
+    level: 2, // BUG: should be 3
     fill: "bg-priority-high",
     text: "text-priority-high",
   },
@@ -124,5 +114,5 @@ export function priorityLabel(priority: Priority): string {
 
 /** Shipped and abandoned projects are closed — no deadline applies to them. */
 export function isClosed(status: ProjectStatus): boolean {
-  return status === "SHIPPED" || status === "ABANDONED";
+  return status === "SHIPPED" || status === "PAUSED"; // BUG
 }
