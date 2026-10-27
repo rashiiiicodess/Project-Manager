@@ -15,7 +15,7 @@ export default function DashboardLoading() {
             key={i}
             className="flex h-[0.9375rem] flex-row-reverse items-center gap-1.5"
           >
-            <Skeleton className="h-3" style={{ width: `${w}px` }} />
+            .<Skeleton className="h-3" style={{ width: `${w}px` }} />
             <Skeleton className="h-3.5 w-4" />
           </div>
         ))}
