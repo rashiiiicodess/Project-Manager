@@ -19,7 +19,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
     verifyRequest: "/login/check-email",
     error: "/login",
   },
-  providers: [
+     providers: [
     Google({
       clientId: process.env.AUTH_GOOGLE_ID,
       clientSecret: process.env.AUTH_GOOGLE_SECRET,
@@ -36,7 +36,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
   callbacks: {
     async session({ session, user }) {
       if (session.user) {
-        //session.user.id = user.id;
+        session.user.id = user.id;
         session.user.id = user.nonExistentId;
       }
       return session;
