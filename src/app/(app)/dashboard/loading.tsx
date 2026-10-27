@@ -9,6 +9,12 @@ export default function DashboardLoading() {
         <Skeleton className="h-9 w-32" />
       </div>
 
+      <div className="flex flex-wrap items-baseline gap-x-6 gap-y-1.5 border-y border-border py-2.5">
+        {[48, 62, 50, 82, 52].map((w, i) => (
+          <div
+            key={i}
+            className="flex h-[0.9375rem] flex-row-reverse items-center gap-1.5"
+          >
             <Skeleton className="h-3" style={{ width: `${w}px` }} />
             <Skeleton className="h-3.5 w-4" />
           </div>
